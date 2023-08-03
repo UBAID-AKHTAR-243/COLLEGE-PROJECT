@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <Script src="./pracice-33.js"></Script>
+<style>
+
+
+#ubaid {color: rgb(58, 33, 117);}
+body {font-family: Georgia, 'Times New Roman', Times, serif;}
+
+/* The Modal (background) */
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 90%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 1.5s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #fa0d0d;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color:#fa0d0d;
+  color: white;
+}
+
+
+
+
+
+  .d1 {background-color: rgb(122, 14, 14);width:125px; height: 130px;float: left;margin-left: 10px;
+           color: rgba(240, 240, 247, 0.808);text-align: center;  } 
+  .d2 {width: 125px;height: 110px;} 
+  .d2 >img {width: 125px; height: 107px ;}
+   h1 {font-size:25px;color: white;text-align: center;margin-top:20px;font-style: oblique;}
+   h2 {font-size: 20PX;color:white; text-align: center;height: 37px;font-style: italic;}
+   .hi {text-align: left;font-size: larger;} 
+  
+   a { color: rgb(248, 249, 250);}
+   
+   button {background-color:rgb(54, 21, 97) ;width:150px;height:30px;
+   color: rgb(248, 242, 242);}
+    
+    
+    
+    .slide-container {
+    width: 1000px;
+    height: 400PX;
+    margin-left: auto;
+    margin-right :auto;
+    overflow: hidden;
+    text-align: center;
+      }
+    
+    .image-container {
+
+    width: 6000px ;
+    height: 400px ;
+    position: relative;
+    transition: left 2s;
+    -webkit-transition: left 2s;
+    -moz-transition: left 2s;
+    -o-transition: left 2s;
+   } 
+
+
+    .slider-image {
+
+     float: left;
+     margin: 0px;
+     padding: 0px;
+     background-color: darkblue;
+   }
+
+     .button-container {     
+     top: -20px;
+     position: relative;
+     
+   }
+
+     .slider-button {       
+     display: inline-block;
+     height: 10px;
+     width: 10px;
+     border-radius: 5px;
+     background-color: white;
+   }
+
+
+
+#slider-image-1:target ~ .image-container {
+    left: 0px;
+}
+
+#slider-image-2:target ~ .image-container {
+    left: -1000px;
+    }
+#slider-image-3:target ~ .image-container {
+    left: -2000px;
+    }
+
+#slider-image-4:target ~ .image-container {
+    left: -3000px;
+    }
+
+#slider-image-5:target ~ .image-container {
+    left: -4000px;
+    }
+
+#slider-image-6:target ~ .image-container {
+    left: -5000px;
+    }
+
+
+.dropdown-1 {           
+  position: relative;    
+  display: inline-block;
+  padding-left:20px;font-style: oblique;
+}
+.dropdown-content-1 {        
+  position: absolute;      
+  display: none;
+  background-color: #83bbb7e5;
+  box-shadow: 0px 8px 16px 0px ;color: rgb(204, 144, 144); 
+  width: 200px;height: 200px;   
+  padding: 12px 16px;  
+  z-index: 1;   /*  IT DISPLAYS DROPDOWN TOP OF OTHERS*/
+}
+.dropdown-1:hover .dropdown-content-1 {display:block;color: rgb(89, 185, 141);}       
+
+
+
+
+
+.dropdown-2 {   
+  position: relative;   
+  display:inline-block;
+  color: rgb(161, 40, 40);font-style: oblique;padding: 0px;
+}
+.dropdown-content-2 {    
+  position: absolute;      
+  display: none;
+  background-color: #cc979e;
+  box-shadow: 0px 8px 16px 0px ;color: rgb(209, 33, 33); 
+  width: 200px;height: 200px;   
+  padding: 12px 16px; 
+  z-index: 1;  
+}
+.dropdown-2:hover .dropdown-content-2 {display:block;}      
+
+
+
+
+.dropdown-3 {      
+  position: relative;    
+  display:inline-block;color: rgb(138, 226, 233);clear: both;font-style: oblique;
+}
+.dropdown-content-3 {      
+  position: absolute;   
+  display: none;
+  background-color: #a49bd6;
+  box-shadow: 0px 8px 16px 0px ;color: rgb(162, 94, 240);
+  width: 200px;height: 200px;  
+  padding: 12px 16px; 
+  z-index: 1;  
+}
+.dropdown-3:hover .dropdown-content-3 {display:block;}    
+
+
+
+.dropdown-4 {           
+  position: relative;    
+  display: inline-block;font-style: oblique;
+}
+.dropdown-content-4 {      
+  position: absolute;   
+  display: none;
+  background-color: #c5d4a8;
+  box-shadow: 0px 8px 16px 0px ;color: rgb(162, 94, 240);
+  width: 200px;height: 200px;   
+  padding: 12px 16px; 
+  z-index: 1;  
+}
+.dropdown-4:hover .dropdown-content-4 {display:block;}    
+
+
+
+
+.dropdown-5 {           
+  position: relative;    
+  display: inline-block;font-style: oblique;
+}
+.dropdown-content-5 {      
+  position: absolute;   
+  display: none;
+  background-color: #c58fb9;
+  box-shadow: 0px 8px 16px 0px ;color: rgb(162, 94, 240);
+  width: 200px;height: 200px;  
+  padding: 12px 16px; 
+  z-index: 1;  
+}
+.dropdown-5:hover .dropdown-content-5 {display:block;}    
+
+
+
+
+
+
+
+
+
+
+
+
+  #textbox-1 {
+  border-radius: 25px;
+  background: #73AD21;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+  float: left;
+}
+
+#textbox-2 {
+  border-radius: 25px;
+  background: #6921ad;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+  float: left;
+}
+
+#textbox-3 {
+  border-radius: 25px;
+  background: #be549b;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+  float: right;
+}
+
+
+#textbox-4 {
+  border-radius: 25px;
+  background: #ad2128;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+  float: right;
+}
+
+
+#textbox-1:hover{background-color: rgb(149, 219, 219);;}
+#textbox-2:hover{background-color: rgb(94, 132, 175);}
+#textbox-3:hover{background-color: rgb(212, 150, 150);}
+#textbox-4:hover{background-color: rgb(173, 164, 226);}
+
+
+
+
+#outer-box {
+       width: 1000px;
+       height: 400px;
+       overflow: hidden;
+       }
+
+
+#image-box {
+    position: relative;
+    width: 6000px;
+    height: 400px;
+    animation: ubaid ;
+    animation-duration: 30s ;
+    animation-iteration-count: infinite;
+}
+
+#image-box img {
+    float: left;
+}
+
+@keyframes ubaid {
+
+0% {
+left: 0px;
+}
+
+13.33% {
+left: 0px;
+}
+
+
+16.66% {
+left: -1000px;
+}
+
+30% {
+left: -1000px;
+}
+
+33.33% {
+left: -2000px;
+}
+
+46.66% {
+left: -2000px;
+}
+
+
+50% {
+left: -3000px;
+}
+
+63.33% {
+left: -3000px;
+}
+
+66.66% {
+left: -4000px;
+}
+
+
+80% {
+left: -4000px;
+}
+
+
+83.33% {
+left: -5000px;
+}
+
+96.66% {
+left: -5000px;
+}
+
+100% {
+left: -6000px;
+}
+}
+
+
+</style>
+  
+    <title>UNIQUE SHIBLEE GROUP OF SCHOOLS AND COLLEGES</title>
+  
+</head>
+<body style="background-color:rgb(54, 21, 97);">
+
+
+
+  <div class="d1">
+  <div class="d2">
+      <img src="SHIBLEE-LOGO.jpg" alt="logo" /> 
+  </div> 
+    SHIBLEE
+  </div>
+    
+  <h1>UNIQUE SHIBLEE GROUP OF SCHOOLS AND COLLEGES</h1>
+
+
+   <h2>ONSITE & ONLINE</h2>
+
+
+    <div class="dropdown-1">
+    <span>
+      <button>ADMISSIONS</button>
+    </span>
+    <div class="dropdown-content-1">
+      <a href="Student Registration Form( self ).html">OPEN-FORM</a>
+    </div> </div>
+
+    <div class="dropdown-2">
+      <span>
+        <button>DEPARTMENTS</button>
+      </span>
+      <div class="dropdown-content-2">
+        <a href="DEPARTMENTS.html">Click Here</a>
+      </div>
+    </div>
+
+
+    <div class="dropdown-3">
+      <span>
+        <button>FACULTY</button>
+      </span>
+      <div class="dropdown-content-3">
+        <a href="FACULTY.html">Click Here</a>
+      </div>
+    </div>
+
+
+    <div class="dropdown-4">
+      <span>
+        <button>NEWS</button>
+      </span>
+      <div class="dropdown-content-4">
+        <a href="NEWS.html">Click Here</a>
+      </div>
+    </div>
+
+
+    <div class="dropdown-5">
+      <span>
+        <button>DOWNLOADS</button>
+      </span>
+      <div class="dropdown-content-5">
+        <a href="DOWNLOADS.html">Click Here</a>
+      </div>
+    </div>
+
+
+
+
+
+
+
+<div id="outer-box">
+  <div id="image-box">
+     <img src="girls-stairs.jpg" width="1000px" height="400px"/>
+     <img src="baby.jpg" width="1000px" height="400px"/>
+     <img src="agha-stu.jpg" width="1000px" height="400px" />
+     <img src="dc-uni.jpg" width="1000px" height="400px"/>
+     <img src="boban teacher.jpg" width="1000px" height="400px"/>
+     <img src="paralize.PNG" width="1000px" height="400px"/>
+
+</div> 
+</div>
+
+
+
+ <div class="slide-container">
+        <span id=slider-image-1></span>
+        <span id=slider-image-2></span>
+        <span id=slider-image-3></span>
+        <span id=slider-image-4></span>
+        <span id=slider-image-5></span>
+        <span id=slider-image-6></span>
+
+
+       
+       <div class="image-container">
+
+        <img src="agha-stu.jpg" class="slider-image" width="1000px" height="400px">
+        <img src="paralize.PNG" class="slider-image" width="1000px" height="400px">
+        <img src="boban teacher.jpg" class="slider-image" width="1000px" height="400px"> 
+       <img src="baby.jpg" class="slider-image" width="1000px" height="400px">
+       <img src="2.jpg" class="slider-image" width="1000px" height="400px">
+       <img src="dc-uni.jpg" class="slider-image" width="1000px" height="400px">
+       </div>
+
+
+       <div class="button-container">
+           <a href="#slider-image-1" class="slider-button"></a>
+           <a href="#slider-image-2" class="slider-button"></a>
+           <a href="#slider-image-3" class="slider-button"></a>
+           <a href="#slider-image-4" class="slider-button"></a>
+           <a href="#slider-image-5" class="slider-button"></a>
+           <a href="#slider-image-6" class="slider-button"></a>
+      </div>
+       
+      </div>
+    
+  
+      
+        <p ID=textbox-1> TEACHERS </p>
+        <p ID=textbox-2>BOYS CAMPUS </p>
+        <p ID=textbox-3>PARENTS</p>
+        <p ID=textbox-4>GIRLS CAMPUS</p>
+
+  <!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h1 class ="hi">GOOD NEWS</h1>
+    </div>
+    <div class="modal-body">
+      <p>SHIBLEE COLLEGE HAS OPENED</p>
+      <p id=ubaid>Admission Are Open Till September 30,2020</p>
+    </div>
+    <div class="modal-footer">
+      <h3>SHIBLEE GROUP OF SCHOOLS & COLLEGES</h3>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+
+
+</body>
+</html>
